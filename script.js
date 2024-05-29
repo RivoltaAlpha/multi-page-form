@@ -5,7 +5,6 @@
 //     document.addEventListener("click").style.display = "none";
 //   });
 // });
-
 // document.getElementById("nextStep").addEventListener("click", function () {
 //   const nameInput = document.getElementById("name");
 //   const phoneInput = document.getElementById("phone");
@@ -84,4 +83,16 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  // JavaScript to change text based on toggle switch
+  document
+    .getElementById("toggleSwitch")
+    .addEventListener("change", function () {
+      const text = document.getElementById("toggleText");
+      if (this.checked) {
+        text.textContent = "Yearly Billing";
+      } else {
+        text.textContent = "Monthly Billing";
+      }
+    });
 });

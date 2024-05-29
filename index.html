@@ -20,22 +20,32 @@
       <div class="form-container">
         <!-- Sidebar start -->
         <div class="sidebar">
-          <div class="step active" id="step1" data-step="1">
-            <div class="step-number">1</div>
-            <div class="step-label">YOUR INFO</div>
-          </div>
-          <div class="step" id="step2" data-step="2">
-            <div class="step-number">2</div>
-            <div class="step-label">SELECT PLAN</div>
-          </div>
-          <div class="step" id="step3" data-step="3">
-            <div class="step-number">3</div>
-            <div class="step-label">ADD-ONS</div>
-          </div>
-          <div class="step" id="step4" data-step="4">
-            <div class="step-number">4</div>
-            <div class="step-label">SUMMARY</div>
-          </div>
+          <ul>
+            <li>
+              <div class="step active" id="step1" data-step="1">
+                <div class="step-number">1</div>
+                <div class="step-label">YOUR INFO</div>
+              </div>
+            </li>
+            <li>
+              <div class="step" id="step2" data-step="2">
+                <div class="step-number">2</div>
+                <div class="step-label">SELECT PLAN</div>
+              </div>
+            </li>
+            <li>
+              <div class="step" id="step3" data-step="3">
+                <div class="step-number">3</div>
+                <div class="step-label">ADD-ONS</div>
+              </div>
+            </li>
+            <li>
+              <div class="step" id="step4" data-step="4">
+                <div class="step-number">4</div>
+                <div class="step-label">SUMMARY</div>
+              </div>
+            </li>
+          </ul>
         </div>
 
         <form id="multiStepForm">
@@ -65,24 +75,35 @@
                         <div class="plan">
                           <img src="./assets/images/icon-arcade.svg" alt="">
                             <input type="radio" id="arcade" name="plan" value="arcade">
-                            <label for="arcade">$9/mo Arcade</label>
+                            <label for="arcade">
+                              <h3>Arcade</h3>
+                              <span>$9/mo</span>
+                            </label>
                         </div>
                         <div class="plan">
                           <img src="./assets/images/icon-advanced.svg" alt="">
                             <input type="radio" id="advanced" name="plan" value="advanced">
-                            <label for="advanced">$12/mo Advanced</label>
+                            <label for="advanced">
+                              <h3>Advanced</h3>
+                              <span>$12/mo</span></label>
                         </div>
                         <div class="plan">
                           <img src="./assets/images/icon-pro.svg" alt="">
                             <input type="radio" id="pro" name="plan" value="pro">
-                            <label for="pro">$15/mo Pro</label>
+                            <label for="pro">
+                              <h3>Pro</h3>
+                              <span>$15/mo</span></label>
                         </div>
                     </div>
 
-                    <div class="billing">
-                        <input type="checkbox" id="yearly" name="billing">
-                        <label for="yearly">Yearly Billing</label>
+                    <div class="toggle-container">
+                      <label class="switch" for="toggleSwitch">
+                        <input type="checkbox" id="toggleSwitch" name="billing">
+                        <span class="slider round"></span>
+                      </label>
+                      <p id="toggleText">Monthly Billing</p>
                     </div>
+                    
 
                     <div class="buttons">
                         <button type="button" class="btn prev-btn">Go Back</button>
@@ -101,7 +122,11 @@
                         </div>
                         <div class="addon">
                             <input type="checkbox" id="largerStorage" name="addon" value="largerStorage">
-                            <label for="largerStorage">Larger storage $2/mo</label>
+                            <label for="largerStorage"> 
+                              Larger storage $2/mo
+                            </label>
+
+                           
                         </div>
                         <div class="addon">
                             <input type="checkbox" id="customizableProfile" name="addon" value="customizableProfile">
@@ -121,10 +146,10 @@
                     <p>Double-check everything looks OK before confirming.</p>
                     <div class="summary">
                         <div class="summary-item">
-                            <p>Arcade (Monthly) $9/mo</p>
-                            <p>Online service $1/mo</p>
-                            <p>Larger storage $2/mo</p>
-                            <p>Total $12/mo</p>
+                            <span><h5>Arcade (Monthly)</h5> <p>$9/mo</p> </span>
+                            <span><h5>Online service</h5> <p>$1/mo</p></span>
+                            <span><h5>Larger storage</h5> <p>$2/mo</p> </span>
+                            <span><h5>Total </h5><p>$12/mo</p></span>
                         </div>
                     </div>
 
@@ -133,6 +158,8 @@
                         <button type="submit" class="btn confirm-btn">Confirm</button>
                     </div>
                 </div>
+
+                <!--step 5--> 
             </form>
     </div>
     <script src="script.js"></script>
