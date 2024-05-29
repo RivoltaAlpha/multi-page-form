@@ -1,0 +1,188 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 90%;
+  height: 80%;
+  margin-top: 100px;
+  margin-left: 5%;
+}
+.sidebar {
+  background-image: url("./assets/images/bg-sidebar-desktop.svg");
+  padding: 10px;
+  border-radius: 10px;
+  height: 540px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 20px;
+  color: aliceblue;
+  align-items: center;
+}
+.container {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 900px;
+}
+
+.form-container {
+  display: flex;
+  width: 100%;
+}
+
+.steps {
+  background-color: #4b5fc3;
+  color: white;
+  padding: 20px;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.step {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  display: block;
+  opacity: 1;
+}
+.step-number {
+  background-color: rgba(255, 255, 255, 0.642);
+  color: #4b5fc3;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.step.active .step-number {
+  background-color: #6b7edc;
+  color: white;
+}
+
+.step-label {
+  font-weight: bold;
+}
+.step.active {
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: underline;
+  opacity: 0.6;
+}
+
+.form-content {
+  padding: 90px;
+  flex: 1;
+}
+.form-step {
+  display: none;
+}
+
+.form-step-active {
+  display: block;
+}
+h2 {
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+.plan {
+  padding: 20px;
+  display: grid;
+  height: 150px;
+  margin: 10px;
+  width: 100px;
+  border: 1px solid black;
+  border-radius: 5px;
+  align-items: center;
+}
+.plans {
+  display: flex;
+  flex-direction: row;
+}
+.addons {
+  display: flex;
+  flex-direction: column;
+}
+
+.addon {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.billing {
+  margin: 20px 0;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+button {
+  background-color: #0e1745;
+  color: white;
+  padding: 10px;
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+next-btn {
+  background-color: #110e46;
+  color: white;
+}
+
+.prev-btn,
+.confirm-btn {
+  background-color: #ccc;
+}
+
+.confirm-btn {
+  background-color: #3d7aff;
+  color: white;
+}
+
+button:hover {
+  background-color: #002aff;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  display: none;
+}
