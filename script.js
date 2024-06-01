@@ -1,52 +1,9 @@
-// document.querySelectorAll(".step").forEach((step) => {
-//   step.addEventListener("click", function () {
-//     const stepNumber = this.getAttribute("data-step");
-//     showStep(stepNumber);
-//     document.addEventListener("click").style.display = "none";
-//   });
-// });
-// document.getElementById("nextStep").addEventListener("click", function () {
-//   const nameInput = document.getElementById("name");
-//   const phoneInput = document.getElementById("phone");
-//   const emailInput = document.getElementById("email");
-//   if (
-//     phoneInput.checkValidity() &&
-//     emailInput.checkValidity() &&
-//     nameInput.checkValidity()
-//   ) {
-//     showStep(2); // Move to the next step
-//   } else {
-//     document.querySelector(".error-message").style.display = "block";
-//   }
-// });
-
-// function nextStep(step) {
-//   document.getElementById(`step${step}`).classList.remove("active");
-//   document.getElementById(`step${step + 1}`).classList.add("active");
-// }
-
-// function prevStep(step) {
-//   document.getElementById(`step${step}`).classList.remove("active");
-//   document.getElementById(`step${step - 1}`).classList.add("active");
-// }
-
-// function showStep(step) {
-//   document.querySelectorAll(".step").forEach((s) => {
-//     s.classList.remove("active");
-//   });
-//   document.querySelectorAll(".form-step").forEach((formStep) => {
-//     formStep.classList.remove("form-step-active");
-//   });
-//   document.querySelector(`.step[data-step="${step}"]`).classList.add("active");
-//   document
-//     .querySelector(`.form-step[data-step="${step}"]`)
-//     .classList.add("form-step-active");
-// }
 document.addEventListener("DOMContentLoaded", function () {
   const steps = document.querySelectorAll(".form-step");
   const nextBtns = document.querySelectorAll(".next-btn");
   const prevBtns = document.querySelectorAll(".prev-btn");
   const form = document.getElementById("multiStepForm");
+  const thankYouMessage = document.getElementById("thankyou-message");
 
   let currentStep = 0;
 
@@ -54,6 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", () => {
       steps[currentStep].classList.remove("form-step-active");
       currentStep++;
+      if (currentStep >= steps.length) {
+        currentStep = steps.length - 1;
+      }
       steps[currentStep].classList.add("form-step-active");
       updateStepsIndicator();
     });
@@ -63,6 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", () => {
       steps[currentStep].classList.remove("form-step-active");
       currentStep--;
+      if (currentStep < 0) {
+        currentStep = 0;
+      }
       steps[currentStep].classList.add("form-step-active");
       updateStepsIndicator();
     });
@@ -70,7 +33,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    alert("Form submitted");
+    console.log("submitting")
+    form.style.display = "none";
+    thankYouMessage.style.display = "block";
+    console.log("submitted")
   });
 
   function updateStepsIndicator() {
@@ -84,10 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // JavaScript to change text based on toggle switch
-  document
-    .getElementById("toggleSwitch")
-    .addEventListener("change", function () {
+  const toggleSwitch = document.getElementById("toggleSwitch");
+  if (toggleSwitch) {
+    toggleSwitch.addEventListener("change", function () {
       const text = document.getElementById("toggleText");
       if (this.checked) {
         text.textContent = "Yearly Billing";
@@ -95,4 +60,28 @@ document.addEventListener("DOMContentLoaded", function () {
         text.textContent = "Monthly Billing";
       }
     });
+  }
+
+  const calculateButton = document.getElementById("calculateButton");
+  if (calculateButton) {
+    calculateButton.addEventListener("click", calculateTotal);
+  } else {
+    console.error("Calculate button not found");
+  }
+
+  function calculateTotal() {
+    console.log("calculateTotal function started"); // Check if function is called
+    var addons = document.querySelectorAll('.addon input[type="checkbox"]');
+    var totalCost = 0;
+    addons.forEach(function (addon) {
+      console.log("Checking addon:", addon.id); // Log each addon being checked
+      if (addon.checked) {
+        console.log("Addon selected:", addon.id, "Value:", addon.value); // Log selected addons
+        totalCost += parseInt(addon.value);
+      }
+    });
+    console.log("Total Cost calculated:", totalCost); // Log the final total cost
+    document.getElementById("totalCostDisplay").textContent =
+      "Total Cost: $" + totalCost;
+  }
 });
