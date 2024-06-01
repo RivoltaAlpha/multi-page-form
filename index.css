@@ -113,7 +113,22 @@ h2 {
   border: 1px solid whitesmoke;
   border-radius: 10px;
   align-items: center;
+  place-items: center;
   box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.375);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.plan input[type="radio"] {
+  display: none;
+}
+
+.plan:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-10px);
+}
+
+.plan input[type="radio"]:checked + h3, 
+.plan input[type="radio"]:checked + span {
+  background-color: #e0e0e0;
 }
 .plans {
   display: flex;
@@ -129,19 +144,32 @@ h2 {
 
 .addon {
   display: flex;
-  flex-direction: column;
-  border: 1px solid rgb(20, 20, 60);
-  align-items: flex-start;
-  justify-content: space-between;
+  flex-direction: row;
+  border: 1px solid whitesmoke;
   margin-bottom: 10px;
   padding: 20px;
   border-radius: 10px;
   margin: 10px;
   width: 400px;
   height: 30px;
+  place-items: center;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.375);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-.span {
+.addon:hover {
+  background-color: #f0f0f0;
+  transform: translateX(-10px);
+}
+.addon label{
   display: flex;
+  margin-left: 50px;
+  /* align-items: center;
+  justify-content: space-between; */
+}
+
+.addon span {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 .billing {
@@ -244,6 +272,8 @@ button {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 .buttons {
   display: flex;
@@ -283,9 +313,110 @@ next-btn {
 button:hover {
   background-color: #002aff;
 }
+.Thankyou {
+  text-align: center;
+  padding: 20px;
+  margin-left: 0;
+}
+
+.Thankyou img {
+  width: 100px;
+  margin-top: 100px;
+}
+
+.Thankyou h2 {
+  margin-bottom: 20px;
+}
+
+.Thankyou p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
 
 .error-message {
   color: red;
   font-size: 12px;
   display: none;
+}
+@media (max-width: 767px) {
+  body {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 10px;
+  }
+  .step-label{
+    display: none;
+  }
+  .container {
+    display: flex;
+    width: 100%;
+    margin: 0;
+  }
+#multiStepForm{
+  margin-left: 20px;
+}
+  .sidebar {
+    width: 900px;
+    height: auto;
+    margin: 0 0 20px 0;
+    background-image: url("./assets/images/bg-sidebar-mobile.svg");
+    flex-direction: row;
+    flex-wrap: wrap;
+   background-repeat: no-repeat;
+  }
+  .sidebar ul{
+    display: flex;
+  }
+
+  .form-content {
+    padding: 20px;
+  }
+
+  .addon {
+    width: 100%;
+    height: auto;
+  }
+
+  .summary {
+    width: 100%;
+  }
+
+  .toggle-container {
+    width: 100%;
+  }
+
+  .steps {
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .step {
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+
+  .form-container {
+    flex-direction: column;
+  }
+
+  .plan {
+    width: 100%;
+    height: auto;
+  }
+
+  .plans {
+    flex-direction: column;
+  }
+  input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-left: 5px;
+}
 }
